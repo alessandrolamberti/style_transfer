@@ -24,7 +24,7 @@ elif page == 'App':
     option = st.sidebar.radio('What do you prefer?', options = ['Custom images', 'Pre-loaded images'])
 
     if option == 'Custom images':
-        content = st.sidebar.file_uploader("Choose a content image", type=['png', 'jpg', 'jpeg'])
+        content = st.sidebar.file_uploader("Choose a content image", type=['png', 'jpg', 'jpeg', 'jfif'])
         
 
     else:
