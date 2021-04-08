@@ -2,7 +2,7 @@ from utils import transfer, load_image, load_model, show_images, download
 from data import *
 import streamlit as st 
 
-st.set_page_config(page_title='Style Transfer', layout= 'wide')
+st.set_page_config(page_title='Style Transfer', layout= 'wide', page_icon= "images/icon.png")
 st.title('Style Transfer App')
 st.sidebar.title('Navigation')
 page = st.sidebar.selectbox("Select page:", options = ["Welcome", "App", "About"])
