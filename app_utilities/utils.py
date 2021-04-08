@@ -47,10 +47,9 @@ def download(images):
   return href
 
 
-@st.cache(ttl = 3600)
+@st.cache(ttl = 3600, max_entries = 5)
 def load_model():
-    hub_handle = 'https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2'
-    model = hub.load(hub_handle)
+    model = hub.load('https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2')
     return model
 
 def transfer(model, content_image, style_image):
