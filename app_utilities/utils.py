@@ -31,12 +31,11 @@ def load_image(image, image_size=(500, 500), preserve_aspect_ratio=True):
   img = tf.image.resize(img, image_size, preserve_aspect_ratio=True)
   return img
 
-
 def show_images(images, titles):
   column = st.beta_columns(3)
   n = len(images)
   for i in range(n):
-    column[i].image(images[i][0].numpy(), caption = titles[i], width = 550)
+    column[i].image(images[i][0].numpy(), caption = titles[i], width = 500)
 
 def download(images):
   image= images[2][0].numpy()
@@ -48,7 +47,7 @@ def download(images):
   return href
 
 
-@st.cache()
+@st.cache(ttl = 3600)
 def load_model():
     hub_handle = 'https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2'
     model = hub.load(hub_handle)

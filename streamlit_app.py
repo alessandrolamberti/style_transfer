@@ -1,6 +1,6 @@
-from utils import transfer, load_image, load_model, show_images, download
-from about import about
-from data import *
+from app_utilities.utils import transfer, load_image, load_model, show_images, download
+from app_utilities.about import about
+from app_utilities.data import *
 import streamlit as st 
 
 st.set_page_config(page_title='Style Transfer', layout= 'wide', page_icon= "images/icon.png")
@@ -25,7 +25,7 @@ elif page == 'App':
     option = st.sidebar.radio('What do you prefer?', options = ['Custom images', 'Pre-loaded images'])
 
     if option == 'Custom images':
-        content = st.sidebar.file_uploader("Choose a content image", type=['png', 'jpg', 'jpeg', 'jfif'])
+        content = st.sidebar.file_uploader("Choose a content image", type=['png', 'jpg', 'jpeg'])
         
 
     else:

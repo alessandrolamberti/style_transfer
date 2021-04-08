@@ -1,7 +1,7 @@
 import os 
 
-style_name = ['Munch', 'Monet', 'Monet_2', 'Picasso','Van Gogh', 'Turner', 'Afremov', 'Space', 'Space_2']
-style_file = ['munch.jpg','monet.jpg', 'monet2.jpg', 'picasso.jpg', 'vangogh.jpg','turner.jpg', 'afremov.jpg', 'space.jpg', 'pillars.jpg']
+style_name = ['Munch', 'Monet', 'Monet_2', 'Picasso','Van Gogh', 'Turner', 'Afremov', 'Space', 'Space_2', 'Escher']
+style_file = ['munch.jpg','monet.jpg', 'monet2.jpg', 'picasso.jpg', 'vangogh.jpg','turner.jpg', 'afremov.jpg', 'space.jpg', 'pillars.jpg', 'escher.jpg']
 
 style_path = 'style/'
 
