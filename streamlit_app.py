@@ -1,4 +1,5 @@
 from utils import transfer, load_image, load_model, show_images, download
+from about import about
 from data import *
 import streamlit as st 
 
@@ -56,9 +57,8 @@ elif page == 'App':
 
 else:
     st.header("About section")
-    st.markdown("""
-    Coming soon!
-    """)
+    about()
+
 
 
 
