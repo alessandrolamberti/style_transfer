@@ -9,6 +9,7 @@ from io import BytesIO
 import base64
 
 import streamlit as st
+from streamlit import caching
 
 def crop_center(image):
   """Returns a cropped square image."""
@@ -53,13 +54,14 @@ def download(images):
 
 @st.cache(ttl = 1800, max_entries = 3)
 def load_model():
-    model = hub.load('https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2')
-    return model
+  model = hub.load('https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2')
+  return model
 
 def transfer(model, content_image, style_image):
-    outputs = model(tf.constant(content_image), tf.constant(style_image))
-    stylized_image = outputs[0]
-    return stylized_image
+
+  outputs = model(tf.constant(content_image), tf.constant(style_image))
+  stylized_image = outputs[0]
+  return stylized_image
 
 
  

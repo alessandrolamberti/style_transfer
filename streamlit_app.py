@@ -2,8 +2,11 @@ from app_utilities.utils import transfer, load_image, load_model, show_images, d
 from app_utilities.about import about
 from app_utilities.data import *
 import streamlit as st 
+from streamlit import caching 
 
 st.set_page_config(page_title='Style Transfer', layout= 'wide', page_icon= "images/icon.png")
+caching.clear_cache()
+
 st.title('Style Transfer App')
 st.sidebar.title('Navigation')
 page = st.sidebar.selectbox("Select page:", options = ["Welcome", "App", "About"])
@@ -45,7 +48,6 @@ elif page == 'App':
     if content and style != None:
         content_image = load_image(content)
         style_image = load_image(style)
-
 
         model = load_model()
         stylized = transfer(model, content_image, style_image)
