@@ -1,4 +1,6 @@
 import matplotlib.pylab as plt
+from matplotlib.backends.backend_agg import RendererAgg
+
 import numpy as np
 import tensorflow as tf
 import tensorflow_hub as hub
@@ -33,9 +35,11 @@ def load_image(image, image_size=(500, 500), preserve_aspect_ratio=True):
 
 def show_images(images, titles):
   column = st.beta_columns(3)
-  n = len(images)
-  for i in range(n):
-    column[i].image(images[i][0].numpy(), caption = titles[i], width = 500)
+  _lock = RendererAgg.lock
+  with _lock:
+    n = len(images)
+    for i in range(n):
+      column[i].image(images[i][0].numpy(), caption = titles[i], width = 500)
 
 def download(images):
   image= images[2][0].numpy()
@@ -47,7 +51,7 @@ def download(images):
   return href
 
 
-@st.cache(ttl = 3600, max_entries = 5)
+@st.cache(ttl = 1800, max_entries = 3)
 def load_model():
     model = hub.load('https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2')
     return model
