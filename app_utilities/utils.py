@@ -52,7 +52,7 @@ def download(images):
   return href
 
 
-@st.cache(ttl = 900, max_entries = 3)
+@st.cache(ttl = 400, max_entries = 1)
 def load_model():
   model = hub.load('https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2')
   return model
